@@ -9,8 +9,8 @@ class GO2AMPSACCfg( LeggedRobotCfg ):
 
     class env( LeggedRobotCfg.env ):
 
-        num_observations = 40 #40 #42 #41 #42 #235 #42(with commands) 39 (without commands)# 
-        num_privileged_obs = 46 #46 #48 #47 #235 #48 #235 # 39+6=45 (without commands) # 48 (with commands)
+        num_observations = 40 # 
+        num_privileged_obs = 46 #
         include_history_steps = None  # Number of steps of history to include.        
         
         #AMP
@@ -133,9 +133,9 @@ class GO2AMPSACCfg( LeggedRobotCfg ):
 
         class scales( LeggedRobotCfg.rewards.scales ):
             
-            tracking_lin_vel = 0. #2. #2. #* 1. / (.005 * 4)
+            tracking_lin_vel = 0.
 
-            tracking_lin_vel_x = 240. #2. / (.005 * 6)
+            tracking_lin_vel_x = 2.5 
             tracking_lin_vel_y = 0. #0.05
 
             tracking_ang_vel = 0. #0.5 #* 1. / (.005 * 6) -- YAW

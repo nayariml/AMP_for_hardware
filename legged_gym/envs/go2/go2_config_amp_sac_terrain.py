@@ -17,8 +17,6 @@ class GO2AMPSACTerrainCfg( LeggedRobotCfg ):
         amp_loader = True # If true, AMP loader is used to load motions
         amp_motion_files = MOTION_FILES
         selected_motion_names = []
-        #["walk04", "walk05", "trot01", "trot02", "trot_gallop02", "trot_gallop03"]
-        #["walk01", "walk02", "walk05", "trot01", "trot02", "trot_gallop02", "trot_gallop03", "left_turn", "right_turn"] # List of motion names to select from the dataset. If empty, all motions are used.
         reference_state_initialization = True #reset the initialization on random frames
 
         episode_length_s = 20 
@@ -62,27 +60,13 @@ class GO2AMPSACTerrainCfg( LeggedRobotCfg ):
             0.5,  # waves [3]
         ]
 
-        # terrain_proportions = [
-        #     0.3, # Flat terrain [0]
-        #     0.0,  # Rough slopes (rocky terrain)[1]
-        #     0.35,  # obstacles [2]
-        #     0.35,  # Uneven terrain - waves [3]
-        #     0.0,  # Stairs up (small cliffs)[4]
-        #     0.0,   # Stairs down (small drops)[5]
-        #     0.0,    # Discrete obstacles (rocks)[6]
-        #     0.0,    # Sand/soil (small depressions)[7]
-        #     0.0,    #  Valleys [8]
-        #     0.0,  # Smooth slopes (hills) [0]
-        # ]
-
         slope_treshold = 0.2 # slopes above this threshold will be corrected to vertical surfaces
-        
-        forest_density = 0.2 #0.5 #0.2  # [2] Density of forest obstacles (0 to 1)
-        hill_height = 0.05 #0.05  #[0] Maximum height of hills [m]
-        obstacle_height = 0.03 #0.05  #[2] and [6] Height of discrete obstacles (rocks, logs) [m]
-        uneven_terrain_amplitude = 0.3 #0.3  # [3] Amplitude of uneven terrain variations [m]
-        depression_depth = 0.05 #0.05 #[7]
-        valley_depth = 0.05 #0.05  # [8] Maximum depth of valleys [m]
+        forest_density = 0.2 # Density of forest obstacles (0 to 1)
+        hill_height = 0.05 # Maximum height of hills [m]
+        obstacle_height = 0.03 #0.05 Height of discrete obstacles (rocks, logs) [m]
+        uneven_terrain_amplitude = 0.3 # Amplitude of uneven terrain variations [m]
+        depression_depth = 0.05 #
+        valley_depth = 0.05 # Maximum depth of valleys [m]
 
     class commands:
         curriculum = False

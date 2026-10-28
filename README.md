@@ -2,6 +2,8 @@
 
 Codebase for the "[Adversarial Motion Priors Make Good Substitutes for Complex Reward Functions](https://bit.ly/3hpvbD6)" project. This repository contains the code necessary to ground agent skills using small amounts of reference data (4.5 seconds). All experiments are performed using the A1 robot from Unitree. This repository is based off of Nikita Rudin's [legged_gym](https://github.com/leggedrobotics/legged_gym) repo, and enables us to train policies using [Isaac Gym](https://developer.nvidia.com/isaac-gym).
 
+**Note on this fork:** I added the Unitree Go2 here so it can be trained with off-policy AMP-SAC from [xRL](https://github.com/nayariml/xRL). There are two new tasks, `go2_ampoff` (flat ground) and `go2_ampoff_terrain` (terrain curriculum from flat to wave to rough), with their configs in `legged_gym/envs/go2/`. The Go2 robot model is in `resources/robots/go2/` and the trot/walk reference motions are in `datasets/mocap_motions_go2/`. The env they run on is `legged_robot_optimized.py`, which loads the reference motions with `legged_gym/utils/amp/motion_loader.py`; xRL uses the same loader for the discriminator data.
+
 **Maintainer**: Alejandro Escontrela
 **Affiliation**: University of California at Berkeley
 **Contact**: escontrela@berkeley.edu
