@@ -58,8 +58,9 @@ class TaskRegistry():
     def get_cfgs(self, name) -> Tuple[LeggedRobotCfg, LeggedRobotCfgPPO]:
         train_cfg = self.train_cfgs[name]
         env_cfg = self.env_cfgs[name]
-        # copy seed
-        env_cfg.seed = train_cfg.seed
+        # copy seed (off-policy envs are registered without a train cfg)
+        if train_cfg is not None:
+            env_cfg.seed = train_cfg.seed
         return env_cfg, train_cfg
     
     def make_env(self, name, args=None, env_cfg=None) -> Tuple[VecEnv, LeggedRobotCfg]:

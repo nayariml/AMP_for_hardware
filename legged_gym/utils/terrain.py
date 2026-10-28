@@ -50,6 +50,10 @@ class Terrain:
         self.cfg.num_sub_terrains = cfg.num_rows * cfg.num_cols
         self.env_origins = np.zeros((cfg.num_rows, cfg.num_cols, 3))
 
+        self.horizontal_scale = self.cfg.horizontal_scale
+        self.vertical_scale = self.cfg.vertical_scale
+        self.border_size = self.cfg.border_size
+
         self.width_per_env_pixels = int(self.env_width / cfg.horizontal_scale)
         self.length_per_env_pixels = int(self.env_length / cfg.horizontal_scale)
 

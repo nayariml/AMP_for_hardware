@@ -31,6 +31,8 @@
 from .base_config import BaseConfig
 
 class LeggedRobotCfg(BaseConfig):
+    seed = 42 # used when no train cfg provides one (off-policy envs)
+
     class env:
         num_envs = 4096
         num_observations = 235
@@ -40,6 +42,9 @@ class LeggedRobotCfg(BaseConfig):
         send_timeouts = True # send time out information to the algorithm
         episode_length_s = 20 # episode length in seconds
         reference_state_initialization = False # initialize state from reference data
+        # command velocity source (LeggedRobotOp)
+        get_commands_directions_sampled = True
+        get_commands_from_joystick = False
 
     class terrain:
         mesh_type = 'trimesh' # "heightfield" # none, plane, heightfield or trimesh
@@ -147,6 +152,10 @@ class LeggedRobotCfg(BaseConfig):
             feet_stumble = -0.0 
             action_rate = -0.01
             stand_still = -0.
+            ang_vel_z = -0.
+            speed_deviation = 0.
+            feet_contact_forces = 0.
+            swing_clearance = 0.
 
         only_positive_rewards = True # if true negative total rewards are clipped at zero (avoids early termination problems)
         tracking_sigma = 0.25 # tracking reward = exp(-error^2/sigma)
@@ -155,6 +164,7 @@ class LeggedRobotCfg(BaseConfig):
         soft_torque_limit = 1.
         base_height_target = 1.
         max_contact_force = 100. # forces above this value are penalized
+        min_distance_foot_ground = 0.
 
     class normalization:
         class obs_scales:
