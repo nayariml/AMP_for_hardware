@@ -11,13 +11,12 @@ class GO2AMPSACCfg( LeggedRobotCfg ):
 
         num_observations = 40 # 
         num_privileged_obs = 46 #
-        include_history_steps = None  # Number of steps of history to include.        
+        include_history_steps = None          
         
-        #AMP
-        amp_loader = True # If true, AMP loader is used to load motions
+        amp_loader = True # 
         amp_motion_files = MOTION_FILES
         selected_motion_names = []
-        reference_state_initialization = True #reset the initialization on random frames
+        reference_state_initialization = True 
 
         episode_length_s = 20 
         ee_names = ["FL_foot", "FR_foot", "RL_foot", "RR_foot"]
@@ -55,21 +54,21 @@ class GO2AMPSACCfg( LeggedRobotCfg ):
 
     class init_state( LeggedRobotCfg.init_state ):
         pos = [0.0, 0.0, 0.42] # x,y,z [m]
-        default_joint_angles = { # = target angles [rad] when action = 0.0
-            'FL_hip_joint': 0.1,   # [rad]
-            'RL_hip_joint': 0.1,   # [rad]
-            'FR_hip_joint': -0.1 ,  # [rad]
-            'RR_hip_joint': -0.1,   # [rad]
+        default_joint_angles = {
+            'FL_hip_joint': 0.1,   
+            'RL_hip_joint': 0.1,   
+            'FR_hip_joint': -0.1 ,  
+            'RR_hip_joint': -0.1,   
 
-            'FL_thigh_joint': 0.8,     # [rad]
-            'RL_thigh_joint': 1.,   # [rad]
-            'FR_thigh_joint': 0.8,     # [rad]
-            'RR_thigh_joint': 1.,   # [rad]
+            'FL_thigh_joint': 0.8,     
+            'RL_thigh_joint': 1.,   
+            'FR_thigh_joint': 0.8,     
+            'RR_thigh_joint': 1.,   
 
-            'FL_calf_joint': -1.5,   # [rad]
-            'RL_calf_joint': -1.5,    # [rad]
-            'FR_calf_joint': -1.5,  # [rad]
-            'RR_calf_joint': -1.5,    # [rad]
+            'FL_calf_joint': -1.5,   
+            'RL_calf_joint': -1.5,    
+            'FR_calf_joint': -1.5,  
+            'RR_calf_joint': -1.5,    
         }
     class control( LeggedRobotCfg.control ):
         # PD Drive parameters:
